@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Declaração de variáveis
+        var idade;
+        //Incialização de variavél
+        idade = 21;
+        //Atribuição de variável
+        idade = 22;
+/*Sendo dado o número de rapazes e nº d raparigas de uma turma, apresente o total de alunos e a percentagem de rapazes e de raparigas.
+Exemplo:15 raparigas  e 5 rapazes Total de 20, 75% raparigas e 25% rapazes*/
+
+        function exemplo1(){
+            var inputrapazes = document.getElementById("txtrapazes");
+            var inputraparigas = document.getElementById("txtraparigas");
+          
+            var div = document.getElementById("divresposta1");
+
+            var rapazes = parseInt(inputrapazes.value);
+            var raparigas = parseInt(inputraparigas.value);
+
+            var alunos = rapazes + raparigas;
+
+            var p_rapazes = rapazes * 100/ alunos;
+            var p_raparigas = raparigas * 100/alunos;
+
+            div.innerHTML = "<h3> ALUNOS: " + alunos + "</h3>";
+            div.innerHTML += "<h3> RAPAZES: " + Math.round (p_rapazes) + "%</h3>";
+            div.innerHTML += "<h3> RAPARIGAS: " + Math.round(p_raparigas) + "%</h3>";
+        }
+/*Elabore um algoritmo que apresente no ecrã o montante a pagar por um determinado produto, tendo em conta o seu valor e a taxa de IVA.
+ O preço e a percentagem de IVA são solicitados ao utilizador.*/
+
+function Exercicio1(){
+
+    var inputproduto=document.getElementById("txtproduto");
+    var inputiva=document.getElementById("txtiva");
+
+    var div =document.getElementById("divresposta2");
+
+    var produto = parseInt(inputproduto.value);
+    var iva = parseInt(inputiva.value);
+
+    var pagar = produto + (produto *iva/100);
+
+    div.innerHTML = "<h3> VALOR A PAGAR COM IVA:" + Math.round(pagar) + " euros</h3>";
+
+}
+
+/*Elabore um algoritmo que peça ao utilizador:
+O número de horas de trabalho do mês;
+O valor hora;
+Assuma que os impostos são: SS: 11% - IRS: 14%;
+Calcule e apresente o salário bruto;
+Calcule e apresente os impostos;
+Calcule e apresente o salário líquido;*/
+function Exercicio2(){
+
+    var inputhoras= document.getElementById("txthoras");
+    var inputvalor= document.getElementById("txtvalor");
+    
+    var div = document.getElementById("divresposta3");
+
+    var horas =parseInt(inputhoras.value);
+    var valor =parseFloat(inputvalor.value);
+
+    var bruto = horas * valor;
+    var impostoss = (horas * valor)*0.11.toFixed(2);
+    var impostoirs = (horas*valor)*0.14.toFixed(2);
+    var salarioliq = (horas*valor) - ((horas*valor)*0.14) - ((horas*valor)*0.14);
+
+    div.innerHTML ="<h3> Salário Bruto:" + bruto + " euros</h3>";
+    div.innerHTML +="<h3> Imposto Segurança Social:" + impostoss.toFixed(2) + " euros</h3";
+    div.innerHTML +="<h3> Imposto IRS:" + impostoirs.toFixed(2) + " euros</h3>";
+    div.innerHTML +="<h3> Salário Líquido:" + salarioliq.toFixed(2) + " euros</h3>";
+        }
+
+/*Elabore um algoritmo que leia a idade de uma pessoa expressa em anos, meses e dias e mostre-a expressa apenas em dias. Assuma que todos os anos têm 365 dias e todos os meses 30 dias.*/
+
+
+function Exercicio3(){
+    var inputano=document.getElementById("txtano");
+    var inputmes=document.getElementById("txtmes");
+    var inputdias=document.getElementById("txtdias");
+
+    var div = document.getElementById("divresposta4");
+
+    var ano=parseInt(inputano.value);
+    var mes=parseInt(inputmes.value);
+    var dias=parseInt(inputdias.value);
+    
+    var totaldias= ano*365+mes*30+dias;
+
+    div.innerHTML ="<h3> TOTAL IDADE:" + totaldias + " dias</h3>";
+
+}
+
+/*Elabore um algoritmo que peça ao utilizador uma distância em kms, um consumo médio em l/100 e o preço do litro do combustivel. Devolva o custo da viagem.*/
+
+function Exercicio4(){
+
+    var inputkm=document.getElementById("txtkm");
+    var inputconsumo=document.getElementById("txtconsumo");
+    var inputpreço=document.getElementById("txtpreço");
+
+    var div=document.getElementById("divresposta5");
+    
+    var km=parseInt(inputkm.value);
+    var consumo=parseFloat(inputconsumo.value);
+    var preço=parseFloat(inputpreço.value);
+    
+    var custoviagem=Math.round(km*(consumo/100)*preço);
+
+    div.innerHTML="<h3> PREÇO VIAGEM:" + Math.round(custoviagem.toFixed(2)) + " euros</h>";
+
+}
+
+function positivonegativo(){
+
+    var inputsec=document.getElementById("txtsec");
+
+    var div=document.getElementById("divpositivonegativo");
+
+    var valor=parseInt(inputsec.value);
+
+
+    if(valor>0)
+    div.innerHTML = "<h3>POSITIVO</h3>";
+    else
+        if(valor <0)
+            div.innerHTML = "<h3>Negativo</h3>";
+        else
+            div.innerHTML = "<h3>Neutro</h3>";
+}
+
+/*Elabore um Algoritmo que ao introduzir um valor em segundos apresente no ecrã o seu valor em horas, minutos e segundos. Exemplo: 3750s – 1h 2m 30s*/
+
+function Exercicio5(){
+
+var inputsec=document.getElementById("txtsec");
+
+var div=document.getElementById("divresposta6");
+
+var sec=parseInt(inputsec.value);
+
+var hors=Math.floor(sec/3600).toFixed(2);
+var mins=Math.floor(sec%3600/60).toFixed(2);
+var seg=Math.floor(sec%3600%60).toFixed(2);
+
+div.innerHTML="<h3>" + Math.floor(hors) + " horas, " + Math.floor(mins) + " minutos e " + Math.floor(seg) + " segundos</h3>";
+
+}
+    </script>
+
+    <h1>Exemplo 1</h1>
+    <input type="number" id="txtrapazes" placeholder="INSIRA A QUANTIDADE DE RAPAZES">
+    <input type="number" id="txtraparigas" placeholder="INSIRA A QUANTIDADE DE RAPARIGAS">
+    <button onclick="exemplo1();">EXECUTAR</button>
+
+    <div id="divresposta1">
+
+    </div>
+
+    <h1>Exercicio 1</h1>
+    <input type="number" id="txtproduto" placeholder="INSIRA PREÇO">
+    <input type="number" id="txtiva" placeholder="INSIRA A % IVA">
+    <button onclick="Exercicio1();">EXECUTAR</button>
+
+    <div id="divresposta2">
+
+    </div>
+
+    <h1>Exercicio 2</h1>
+    <input type="number" id="txthoras" placeholder="INSIRA HORAS/MÊS">
+    <input type="number" id="txtvalor" placeholder="INSIRA O VALOR POR HORA">
+    <button onclick="Exercicio2();">EXECUTAR</button>
+
+    <div id="divresposta3">
+
+    </div>
+
+    <h1>Exercicio 3</h1>
+    <input type="number" id="txtano" placeholder="INSIRA Nº ANOS">
+    <input type="number" id="txtmes" placeholder="INSIRA Nº MESES">
+    <input type="number" id="txtdias" placeholder="INSIRA Nº DIAS">
+    <button onclick="Exercicio3();">EXECUTAR</button>
+
+    <div id="divresposta4">
+
+    </div>
+
+    <h1>Exercicio 4</h1>
+    <input type="number" id="txtkm" placeholder="INSIRA KM">
+    <input type="number" id="txtconsumo" placeholder="INSIRA CONSUMO/100">
+    <input type="number" id="txtpreço" placeholder="INSIRA P/COMBUSTÍVEL">
+    <button onclick="Exercicio4();">EXECUTAR</button>
+
+    <div id="divresposta5">
+
+    </div>
+    
+    <h1>Positivo Negativo</h1>
+    <input type="number" id="txtsec" placeholder="Valor Inteiro:">
+    <button onclick="positivonegativo();">EXECUTAR</button>
+
+    <div id="divpositivonegativo">
+
+    </div>
+</body>
+</html>
